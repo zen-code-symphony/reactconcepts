@@ -1,8 +1,24 @@
-# React + Vite
+# React concepts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```mermaid
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart TB
+    subgraph vite
+        direction TB
+        viteserver[dev server: port 5173] --> viteconfig[vite.config.js]
+        vitepreview[server: port 4173] --> viteconfig
+        viteconfig --> viteplugineslint[vite-plugin-eslint]
+        viteconfig --> vitejspluginreact[vitejs/plugin-react]
+        vitebuild[vite build]
+    end
+    subgraph dist
+        direction TB
+        index.html
+        assets/xxxx.js
+        assets/xxxx.css
+    end
+    vitebuild --generates--> dist
+    vitepreview --serves--> dist
+    Browser --dev mode--> viteserver
+    Browser --prod mode--> vitepreview
+```

@@ -26,7 +26,7 @@ flowchart TB
         direction TB
         index.html1[index.html, assets/xxxx.js,css,svg]
     end
-    subgraph src
+    subgraph code-repository
         direction TB
         index.html2[index.html, src/..., public/...]
         packagejson[package.json]
@@ -48,13 +48,13 @@ flowchart TB
     viteplugineslint --> eslint
     eslint --lints--> index.html2
     prettier --formats--> index.html2
-    VSCode --code editing--> src
+    VSCode --code editing--> code-repository
     vscode-eslint --lints using--> eslint
     vscode-prettier --formats using--> prettier
 
     vitebuild --generates--> dist
     vitepreview --serves--> dist
-    viteserver --serves --> src
+    viteserver --serves --> index.html2
     Browser --dev mode--> viteserver
     Browser --prod mode--> vitepreview
 ```

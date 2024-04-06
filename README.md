@@ -4,7 +4,7 @@ NOTE: The example app in this repository is based on [Brian Holt's React course 
 
 ## Table of contents
 
-1. [ReactJS dev setup](#reactjs-dev-setup)
+1. [ReactJS dev setup](#reactjs-dev-setup-toc)
 
 <details open>
   <summary>

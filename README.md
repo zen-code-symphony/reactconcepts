@@ -5,8 +5,8 @@
 flowchart TB
     subgraph vite
         direction TB
-        viteserver[dev server: port 5173] --> viteconfig[vite.config.js]
-        vitepreview[server: port 4173] --> viteconfig
+        viteserver[vite: port 5173] --> viteconfig[vite.config.js]
+        vitepreview[vite preview: port 4173] --> viteconfig
         viteconfig --> viteplugineslint[vite-plugin-eslint]
         viteconfig --> vitejspluginreact[vitejs/plugin-react]
         vitebuild[vite build]

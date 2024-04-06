@@ -35,7 +35,7 @@ flowchart TB
     end
     prettier --uses--> prettierconfig
     eslint --uses--> eslintconfig
-    subgraph VS Code
+    subgraph VSCode[VS Code]
         direction LR
         vscode-eslint[ext: dbaeumer.vscode-eslint]
         vscode-prettier[ext: esbenp.prettier-vscode]

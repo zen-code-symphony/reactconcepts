@@ -19,7 +19,7 @@ We will be creating a basic ReactJS dev setup using:
 - [VSCode](https://code.visualstudio.com/) as the code editor. It includes extensions for ESLint, Prettier etc.
 - [npm](https://www.npmjs.com/) as the JavaScript package manager.
 
-Below is high-level diagram that depicts how all the above pieces fit together.
+Below is a high-level diagram that depicts how all the above pieces fit together:
 
 ```mermaid
 ---

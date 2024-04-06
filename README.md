@@ -2,12 +2,12 @@
 
 ## Table of contents
 
-1. [ReactJS dev setup]
+1. [ReactJS dev setup](#reactjs-dev-setup)
 
 <details open>
   <summary>
   
-  ## ReactJS dev setup
+  ## ReactJS dev setup [[TOC]](#table-of-contents)
   
   </summary>
 

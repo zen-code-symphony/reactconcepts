@@ -1,6 +1,15 @@
 # React concepts
 
-## ReactJS dev setup
+## Table of contents
+
+1. [ReactJS dev setup]
+
+<details open>
+  <summary>
+  
+  ## ReactJS dev setup
+  
+  </summary>
 
 We will be creating a basic ReactJS dev setup using:
 
@@ -113,3 +122,5 @@ Follow the below steps to create the above setup:
    ```sh
    npm run dev
    ```
+
+</details>

@@ -1,5 +1,7 @@
 # React concepts
 
+NOTE: The example app in this repository is based on [Brian Holt's React course on Frontend Masters](https://frontendmasters.com/courses/intermediate-react-v5/).
+
 ## Table of contents
 
 1. [ReactJS dev setup](#reactjs-dev-setup)

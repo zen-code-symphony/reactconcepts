@@ -13,12 +13,15 @@ flowchart TB
     end
     subgraph dist
         direction TB
-        index.html
-        assets/xxxx.js
-        assets/xxxx.css
+        index.html1[index.html, assets/xxxx.js,css,svg]
+    end
+    subgraph src
+        direction TB
+        index.html2[index.html, src/..., public/...]
     end
     vitebuild --generates--> dist
     vitepreview --serves--> dist
+    viteserver --serves --> src
     Browser --dev mode--> viteserver
     Browser --prod mode--> vitepreview
 ```

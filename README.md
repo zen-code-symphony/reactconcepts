@@ -109,6 +109,7 @@ Follow the below steps to create the above setup:
 4.  Configure Prettier:
 
     - Create Prettier config file i.e. `.prettierrc.json` with an empty config object i.e. `{}`. Install [Prettier VS Code extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode). Refer [.prettierrc](./.prettierrc.json).
+
     - Add [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports) prettier plugin to sort and organize imports. Add the following configuration to `.prettierrc.json`. Refer [.prettierrc.json](./.prettierrc.json).
 
     ```json
@@ -140,7 +141,7 @@ Follow the below steps to create the above setup:
 
     - Further, install [ESLint VS Code extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-    - Install plugins for a11y and Prettier.
+    - Install ESLint plugins for a11y and Prettier.
 
       ```sh
       npm install -D eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-config-prettier
@@ -182,6 +183,14 @@ Follow the below steps to create the above setup:
       ```
 
     - Install [Tailwind CSS Intellisense extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+    - Add [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) prettier plugin to automatically sorts classes based on [recommended class order](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted). Update `plugins` property in [.prettierrc.json](./.prettierrc.json).
+
+      ```json
+      {
+        "plugins": ["prettier-plugin-tailwindcss"]
+      }
+      ```
 
 7.  Add the following `format` command inside `"scripts"` config property of the `package.json` file in order to format files using prettier using CLI. Refer [package.json](./package.json) file.
 

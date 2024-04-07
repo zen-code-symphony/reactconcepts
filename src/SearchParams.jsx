@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import Pet from "./Pet";
+import useBreedList from "./hooks/useBreedList";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -6,11 +9,30 @@ const SearchParams = () => {
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
-  const breeds = [];
+  const [breeds] = useBreedList(animal);
+  const [pets, setPets] = useState([]);
+
+  async function requestPets() {
+    const res =
+      await fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}
+    `);
+    const json = await res.json();
+    setPets(json.pets);
+  }
+
+  useEffect(() => {
+    requestPets();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="mx-auto my-0 w-[1100px]">
-      <form className="float-left my-0 ml-0 mr-[25px] w-[360px] rounded-md bg-lightpink px-[15px] pb-[15px] pt-[35px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]">
+    <div className="mx-auto my-0 w-[1100px] md:w-[95%]">
+      <form
+        className="float-left my-0 ml-0 mr-[25px] w-[360px] rounded-md bg-lightpink px-[15px] pb-[15px] pt-[35px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]"
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location" className="block w-[60px]">
           Location
         </label>
@@ -57,6 +79,15 @@ const SearchParams = () => {
           Submit
         </button>
       </form>
+
+      {pets.map((pet) => (
+        <Pet
+          name={pet.name}
+          animal={pet.animal}
+          breed={pet.breed}
+          key={pet.id}
+        />
+      ))}
     </div>
   );
 };

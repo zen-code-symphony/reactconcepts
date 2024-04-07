@@ -7,6 +7,7 @@ NOTE: The example app in this repository is based on [Brian Holt's React course 
 1. [ReactJS dev setup](#reactjs-dev-setup-toc)
 2. React fundamentals
    - [Unidirectional data flow](#react-fundamentals-unidirectional-data-flow-toc)
+   - [Custom hook](#react-fundamentals-custom-hook-toc)
 
 <details open>
   <summary>
@@ -234,6 +235,38 @@ flowchart LR
 
 
   ParentComponent --data--> Props
+```
+
+</details>
+
+<details open>
+
+  <summary>
+  
+  ## React fundamentals: Custom hook [[TOC]](#table-of-contents)
+  
+  </summary>
+
+Custom hooks are used to hide all complexity from the user component and provide a clean interface to get access to the required data. This design pattern makes the code simple & easy to follow, improves code maintainability, and enables reusability.
+
+```mermaid
+flowchart LR
+  subgraph useCustomHook
+    direction LR
+    State[State - Read/Write data]
+    useEffect[useEffect: side effect e.g. fetch, localStorage etc.]
+    useEffect --sets--> State
+  end
+
+  subgraph Component
+    direction LR
+    importhook[import useCustomHook]
+    hookstate[state = useCustomHook]
+  end
+
+  useCustomHook --imports--> importhook
+  State --returned--> hookstate
+
 ```
 
 </details>

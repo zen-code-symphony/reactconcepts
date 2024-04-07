@@ -5,6 +5,8 @@ NOTE: The example app in this repository is based on [Brian Holt's React course 
 ## Table of contents
 
 1. [ReactJS dev setup](#reactjs-dev-setup-toc)
+2. React fundamentals
+   - [Unidirectional data flow](#react-fundamentals-unidirectional-data-flow-toc)
 
 <details open>
   <summary>
@@ -206,5 +208,32 @@ Follow the below steps to create the above setup:
     ```sh
     npm run dev
     ```
+
+</details>
+
+<details open>
+
+  <summary>
+  
+  ## React fundamentals: Unidirectional data flow [[TOC]](#table-of-contents)
+  
+  </summary>
+
+```mermaid
+flowchart LR
+  ParentComponent[Parent Component]
+
+  subgraph Component
+    direction LR
+    State[State - Read/Write data]
+    Props[Props - Read-only data]
+    UI --setState (event handler, useEffect)--> State
+    Props --Update UI on change--> UI
+    State --Update UI on change--> UI
+  end
+
+
+  ParentComponent --data--> Props
+```
 
 </details>

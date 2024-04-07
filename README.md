@@ -137,7 +137,24 @@ Follow the below steps to create the above setup:
 5.  Configure ESLint
 
     - Update `vite.config.js` to include eslint plugin. Add `import eslint from "vite-plugin-eslint";` and call `eslint()` inside `plugins` array. Refer [vite.config.js](./vite.config.js).
+
     - Further, install [ESLint VS Code extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+    - Install plugins for a11y and Prettier.
+
+      ```sh
+      npm install -D eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-config-prettier
+      ```
+
+    - Refer [.eslintrc.cjs](./.eslintrc.cjs) and update following entries:
+      ```js
+      module.exports = {
+        // Snip
+        extends: ["plugin:jsx-a11y/recommended", "plugin:prettier/recommended"],
+        plugins: ["react-refresh", "jsx-a11y"],
+        // Snip
+      };
+      ```
 
 6.  Configure Tailwind CSS
 

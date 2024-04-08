@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 const Pet = ({ name, animal, breed, images, location, id }) => {
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
   if (images.length) {
     hero = images[0];
   }
   return (
-    <a
-      href={`/details/${id}`}
+    <Link
+      to={`/details/${id}`}
       className="flex items-center gap-2 border-b-2 border-solid border-b-[#333] py-4  last:border-b-0"
     >
       <img src={hero} alt={name} className="w-[100px] rounded-full" />
@@ -17,7 +19,7 @@ const Pet = ({ name, animal, breed, images, location, id }) => {
           {animal} - {breed} - {location}
         </h2>
       </div>
-    </a>
+    </Link>
   );
 };
 

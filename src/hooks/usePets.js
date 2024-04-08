@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-export default function usePets(animal, location, breed) {
+export default function usePets() {
   const [pets, setPets] = useState([]);
 
-  async function requestPets() {
+  async function requestPets(animal = "", location = "", breed = "") {
     const res =
       await fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}
   `);

@@ -8,6 +8,7 @@ NOTE: The example app in this repository is based on [Brian Holt's React course 
 2. React fundamentals
    - [Unidirectional data flow](#react-fundamentals-unidirectional-data-flow-toc)
    - [Custom hook](#react-fundamentals-custom-hook-toc)
+   - [TanStack / React Query](#react-fundamentals-react-query-toc)
 
 <details open>
   <summary>
@@ -266,7 +267,41 @@ flowchart LR
 
   useCustomHook --imports--> importhook
   State --returned--> hookstate
+```
 
+</details>
+
+<details open>
+
+  <summary>
+  
+  ## React fundamentals: TanStack / React Query [[TOC]](#table-of-contents)
+  
+  </summary>
+
+TanStack / React Query is a data-fetching library for web applications, but in more technical terms, it makes fetching, caching, synchronizing and updating server state in your web applications a breeze.
+
+```mermaid
+flowchart LR
+  subgraph react-query
+    direction LR
+    QueryClientProvider --> QueryClient
+    useQuery[useQuery: queryKey, queryFn]
+    useQueryClient --uses--> QueryClient
+    useMutation[useMutation: mutationFn, onSuccess, onError]
+  end
+  results[results: error, isLoading, data]
+  resultsmutate[results: mutate, isLoading]
+
+  AppComponent --wraps app components inside--> QueryClientProvider
+  Component --calls--> useQuery
+  useQuery --returns--> results
+  results --uses--> Component
+  Component --refers--> fetchApiFn
+  Component --calls--> useMutation
+  useMutation -->returns--> resultsmutate
+  resultsmutate --uses--> Component
+  Component --uses--> QueryClient
 ```
 
 </details>

@@ -373,92 +373,92 @@ form .pet {
   @apply box-border text-[#333];
 }
 body {
-  @apply bg-[#81a69b] bg-[url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg)] m-0;
+  @apply m-0 bg-[#81a69b] bg-[url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg)];
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .search-params {
-  @apply w-[1100px] mx-auto my-0;
+  @apply mx-auto my-0 w-[1100px];
 }
 .search-params form {
-  @apply shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff] w-[360px] float-left ml-0 mr-[25px] my-0 pt-[35px] pb-[15px] px-[15px] rounded-md;
+  @apply float-left my-0 ml-0 mr-[25px] w-[360px] rounded-md px-[15px] pb-[15px] pt-[35px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff];
   background: #faeff0;
 }
 .search {
-  @apply shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff] w-[715px] float-left mb-[25px] p-[15px] rounded-md;
+  @apply float-left mb-[25px] w-[715px] rounded-md p-[15px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff];
   background: #faeff0;
 }
 .details {
-  @apply w-[1100px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff] mb-[25px] mx-auto my-0 p-[15px] rounded-md;
+  @apply mx-auto my-0 mb-[25px] w-[1100px] rounded-md p-[15px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff];
   background: #faeff0;
 }
 .pet {
-  @apply w-full h-[130px] block overflow-hidden mx-0 my-[25px] border-b-[#333] border-b-[solid];
+  @apply mx-0 my-[25px] block h-[130px] w-full overflow-hidden border-b-[#333] border-b-[solid];
 }
 .pet img {
-  @apply w-[100px] min-h-[100px];
+  @apply min-h-[100px] w-[100px];
 }
 .info {
-  @apply float-left w-4/5 h-[100px] flex-col justify-around pt-2.5;
+  @apply float-left h-[100px] w-4/5 flex-col justify-around pt-2.5;
 }
 .image-container {
-  @apply w-[100px] h-[100px] float-left ml-2.5 mr-5 my-0;
+  @apply float-left my-0 ml-2.5 mr-5 h-[100px] w-[100px];
   clip-path: circle(50% at 50% 50%);
 }
 .pet h1 {
-  @apply whitespace-nowrap font-[normal] text-3xl text-[#333] w-[95%] overflow-hidden text-ellipsis m-0;
+  @apply m-0 w-[95%] overflow-hidden text-ellipsis whitespace-nowrap font-[normal] text-3xl text-[#333];
 }
-header > a,
+/* header > a, */
 #root > div > h1 {
-  @apply inline-block bg-[url(http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png)] brightness-[150%] w-[279px] h-[76px] overflow-hidden indent-[-9999px] mx-0 my-5;
+  @apply mx-0 my-5 inline-block h-[76px] w-[279px] overflow-hidden bg-[url(http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png)] indent-[-9999px] brightness-[150%];
 }
 .pet h2 {
-  @apply whitespace-nowrap font-[normal] text-xl text-ellipsis m-0;
+  @apply m-0 text-ellipsis whitespace-nowrap font-[normal] text-xl;
 }
-header a {
+/* header a {
   @apply text-[#333] text-[3px] no-underline font-[bold] block pb-2.5;
 }
 header {
   @apply flex content-center justify-center w-[1100px] mx-auto my-0 pt-5 pb-0 px-0;
-}
+} */
 .details p {
-  @apply leading-normal px-[15px] py-0;
+  @apply px-[15px] py-0 leading-normal;
 }
 .details h1 {
-  @apply text-center text-[#333] text-6xl mx-0 my-[5px];
+  @apply mx-0 my-[5px] text-center text-6xl text-[#333];
 }
 .details h2 {
-  @apply text-center mt-[5px] mb-5 mx-0;
+  @apply mx-0 mb-5 mt-[5px] text-center;
 }
 .carousel {
-  @apply flex justify-around items-center h-[400px] mt-2;
+  @apply mt-2 flex h-[400px] items-center justify-around;
 }
 .carousel > img {
-  @apply max-w-[45%] max-h-[400px];
+  @apply max-h-[400px] max-w-[45%];
 }
 .carousel-smaller {
   @apply w-6/12;
 }
 .carousel-smaller > img {
-  @apply w-[100px] h-[100px] inline-block cursor-pointer m-[15px] rounded-[50%] border-2 border-solid border-[#333];
+  @apply m-[15px] inline-block h-[100px] w-[100px] cursor-pointer rounded-[50%] border-2 border-solid border-[#333];
 }
 .carousel-smaller > img.active {
-  @apply opacity-60 border-[#333];
+  @apply border-[#333] opacity-60;
 }
 .search-params label {
   @apply block w-[60px];
 }
 .search-params input,
 .search-params select {
-  @apply text-lg h-[30px] w-[325px] mb-[30px];
+  @apply mb-[30px] h-[30px] w-[325px] text-lg;
 }
 .search-params button,
 #modal button,
 #modal a,
 .details button {
-  @apply bg-[#ad343e] text-[white] text-lg block cursor-pointer mx-auto my-0 px-[25px] py-[5px] rounded-[5px] border-[#333] border-[solid];
+  @apply mx-auto my-0 block cursor-pointer rounded-[5px] border-[#333] border-[solid] bg-[#ad343e] px-[25px] py-[5px] text-lg text-[white];
 }
 #modal a {
-  @apply inline-block no-underline mr-[15px];
+  @apply mr-[15px] inline-block no-underline;
 }
 .search-params button:hover {
   @apply bg-[#122622];
@@ -470,18 +470,18 @@ header {
   @apply border border-solid border-[cornflowerblue];
 }
 #modal {
-  @apply bg-[rgba(0,0,0,0.9)] fixed z-10 flex justify-center items-center inset-0 empty:hidden;
+  @apply fixed inset-0 z-10 flex items-center justify-center bg-[rgba(0,0,0,0.9)] empty:hidden;
 }
 #modal > div {
-  @apply bg-[white] max-w-[500px] text-center p-[15px] rounded-[30px];
+  @apply max-w-[500px] rounded-[30px] bg-[white] p-[15px] text-center;
   background: #faeff0;
 }
 #modal .buttons button {
-  @apply inline-block mr-[15px];
+  @apply mr-[15px] inline-block;
 }
 @media only screen and (max-width: 1129px) {
   header {
-    @apply flex content-center justify-center w-[95%] mx-auto my-0 pt-5 pb-0 px-0;
+    @apply mx-auto my-0 flex w-[95%] content-center justify-center px-0 pb-0 pt-5;
   }
   .search-params {
     @apply w-[95%];
@@ -490,19 +490,19 @@ header {
     @apply mb-5;
   }
   .search {
-    @apply w-[55%] float-left mb-[25px] p-[15px] rounded-[9px];
+    @apply float-left mb-[25px] w-[55%] rounded-[9px] p-[15px];
   }
   .details {
-    @apply w-[95%] mb-[25px] mx-auto my-0 p-[15px] rounded-[9px];
+    @apply mx-auto my-0 mb-[25px] w-[95%] rounded-[9px] p-[15px];
   }
   .info {
     @apply w-[65%];
   }
   .info h1 {
-    @apply w-full whitespace-nowrap overflow-hidden text-ellipsis;
+    @apply w-full overflow-hidden text-ellipsis whitespace-nowrap;
   }
   .info h2 {
-    @apply w-full whitespace-nowrap overflow-hidden text-ellipsis;
+    @apply w-full overflow-hidden text-ellipsis whitespace-nowrap;
   }
 }
 @media only screen and (max-width: 945px) {
@@ -524,24 +524,24 @@ header {
     @apply float-none mx-auto my-0;
   }
   .carousel-smaller > img {
-    @apply w-[60px] h-[60px];
+    @apply h-[60px] w-[60px];
   }
 }
 .loading-pane {
-  @apply items-center justify-center flex p-[15px];
+  @apply flex items-center justify-center p-[15px];
 }
 form .pet {
   @apply mx-auto my-0;
   float: unset;
 }
 .loader {
-  @apply text-[100px] animate-spin;
+  @apply animate-spin text-[100px];
 }
-@keyframes spin {
+/* @keyframes spin {
   to {
     @apply rotate-[360deg];
   }
-}
+} */
 .mini.loading-pane {
   @apply h-[34px];
 }

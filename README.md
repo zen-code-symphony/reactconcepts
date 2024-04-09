@@ -8,7 +8,7 @@ NOTE: The example app in this repository is based on [Brian Holt's React course 
 2. React fundamentals
    - [Unidirectional data flow](#react-fundamentals-unidirectional-data-flow-toc)
    - [Custom hook](#react-fundamentals-custom-hook-toc)
-   - [TanStack / React Query](#react-fundamentals-react-query-toc)
+   - [TanStack / React Query](#react-fundamentals-tanstack--react-query-toc)
 
 <details open>
   <summary>

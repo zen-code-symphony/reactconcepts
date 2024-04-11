@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 
+import Carousel from "./Carousel";
 import usePet from "./hooks/usePet";
 
 const Details = () => {
@@ -20,6 +21,7 @@ const Details = () => {
 
   return (
     <div className="mx-auto my-0 mb-[25px] w-[1100px] rounded-md bg-lightpink p-[15px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]">
+      <Carousel images={pet.images} />
       <div>
         <h1 className="mx-0 my-[5px] text-center text-6xl text-[#333]">
           {pet.name}

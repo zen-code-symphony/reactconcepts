@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
+import AdoptedPetContext from "./AdoptedPetContext";
 import useBreedList from "./hooks/useBreedList";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
@@ -7,6 +8,7 @@ const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 function SearchForm({ requestPets }) {
   const [animal, setAnimal] = useState("");
   const [breeds] = useBreedList(animal);
+  const [adoptedPet] = useContext(AdoptedPetContext);
   return (
     <form
       className="float-left my-0 ml-0 mr-[25px] w-[360px] rounded-md bg-lightpink px-[15px] pb-[15px] pt-[35px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]"
@@ -21,6 +23,13 @@ function SearchForm({ requestPets }) {
         requestPets(obj);
       }}
     >
+      {adoptedPet ? (
+        <img
+          src={adoptedPet.images[0]}
+          alt={adoptedPet.name}
+          className="m-auto h-[100px] rounded-full"
+        />
+      ) : null}
       <label htmlFor="location" className="block w-[60px]">
         Location
       </label>

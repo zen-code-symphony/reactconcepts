@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
+import AdoptedPetContext from "./AdoptedPetContext";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import Modal from "./Modal";
@@ -10,6 +11,9 @@ const Details = () => {
   const { id } = useParams();
   const { isLoading, pet, errorMsg } = usePet(id);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
+  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
   if (errorMsg) {
     return <h2>Oh no! {errorMsg}</h2>;
@@ -46,7 +50,13 @@ const Details = () => {
                   Would you like to adopt {pet.name}?
                 </h1>
                 <div>
-                  <button className="mx-auto my-0 mr-[15px] inline-block cursor-pointer rounded-[5px] border-[#333] border-[solid] bg-[#ad343e] px-[25px] py-[5px] text-lg text-[white]">
+                  <button
+                    className="mx-auto my-0 mr-[15px] inline-block cursor-pointer rounded-[5px] border-[#333] border-[solid] bg-[#ad343e] px-[25px] py-[5px] text-lg text-[white]"
+                    onClick={() => {
+                      setAdoptedPet(pet);
+                      navigate("/");
+                    }}
+                  >
                     Yes
                   </button>
                   <button

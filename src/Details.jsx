@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 import usePet from "./hooks/usePet";
 
 const Details = () => {
@@ -38,4 +40,19 @@ const Details = () => {
   );
 };
 
-export default Details;
+function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary
+      errorComponent={
+        <h2>
+          There was an error with this listing.{" "}
+          <Link to="/">Click here to go back to home page.</Link>
+        </h2>
+      }
+    >
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}
+
+export default DetailsErrorBoundary;

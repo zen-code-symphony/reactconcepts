@@ -1,7 +1,5 @@
 const fetchPets = async ({ queryKey }) => {
-  const animal = queryKey[1];
-  const location = queryKey[2];
-  const breed = queryKey[3];
+  const { animal, location, breed } = queryKey[1];
 
   const apiRes = await fetch(
     `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`,

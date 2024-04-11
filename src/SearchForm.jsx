@@ -5,16 +5,20 @@ import useBreedList from "./hooks/useBreedList";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 function SearchForm({ requestPets }) {
-  const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
-  const [breed, setBreed] = useState("");
   const [breeds] = useBreedList(animal);
   return (
     <form
       className="float-left my-0 ml-0 mr-[25px] w-[360px] rounded-md bg-lightpink px-[15px] pb-[15px] pt-[35px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]"
       onSubmit={(e) => {
         e.preventDefault();
-        requestPets(animal, location, breed);
+        const formData = new FormData(e.target);
+        const obj = {
+          location: formData.get("location") ?? "",
+          animal: formData.get("animal") ?? "",
+          breed: formData.get("breed") ?? "",
+        };
+        requestPets(obj);
       }}
     >
       <label htmlFor="location" className="block w-[60px]">
@@ -22,10 +26,9 @@ function SearchForm({ requestPets }) {
       </label>
       <input
         id="location"
-        value={location}
+        name="location"
         placeholder="Location"
         className="mb-[30px] h-[30px] w-[325px] border border-solid border-border p-2 text-lg"
-        onChange={(e) => setLocation(e.target.value)}
       />
 
       <label htmlFor="animal" className="block w-[60px]">
@@ -33,6 +36,7 @@ function SearchForm({ requestPets }) {
       </label>
       <select
         id="animal"
+        name="animal"
         value={animal}
         onChange={(e) => setAnimal(e.target.value)}
         className="mb-[30px] h-[30px] w-[325px] border border-solid border-border text-lg"
@@ -48,9 +52,8 @@ function SearchForm({ requestPets }) {
       </label>
       <select
         id="breed"
-        value={breed}
+        name="breed"
         disabled={breeds.length === 0}
-        onChange={(e) => setBreed(e.target.value)}
         className="mb-[30px] h-[30px] w-[325px] border border-solid border-border text-lg"
       >
         <option />

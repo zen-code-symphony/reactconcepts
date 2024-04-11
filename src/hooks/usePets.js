@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+
+import fetchPets from "../fetchPets";
 
 export default function usePets() {
-  const [pets, setPets] = useState([]);
+  const [animal, setAnimal] = useState("");
+  const [location, setLocation] = useState("");
+  const [breed, setBreed] = useState("");
+  const { data } = useQuery({
+    queryKey: ["pets", animal, location, breed],
+    queryFn: fetchPets,
+  });
 
-  async function requestPets(animal = "", location = "", breed = "") {
-    const res =
-      await fetch(`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}
-  `);
-    const json = await res.json();
-    setPets(json.pets);
+  function requestPets(animal, location, breed) {
+    setAnimal(animal);
+    setLocation(location);
+    setBreed(breed);
   }
 
-  useEffect(() => {
-    requestPets();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  return [pets, requestPets];
+  return [data?.pets || [], requestPets];
 }

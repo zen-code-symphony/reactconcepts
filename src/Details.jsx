@@ -1,28 +1,22 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 
-import fetchPet from "./fetchPet";
+import usePet from "./hooks/usePet";
 
 const Details = () => {
   const { id } = useParams();
-  const results = useQuery({
-    queryKey: ["details", id],
-    queryFn: fetchPet,
-  });
+  const { isLoading, pet, errorMsg } = usePet(id);
 
-  if (results.isError) {
-    return <h2>Oh no! {results.error.message}</h2>;
+  if (errorMsg) {
+    return <h2>Oh no! {errorMsg}</h2>;
   }
 
-  if (results.isLoading) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center p-[15px]">
         <h2 className="animate-spin text-[50px]">🌀</h2>
       </div>
     );
   }
-
-  const pet = results.data.pets[0];
 
   return (
     <div className="mx-auto my-0 mb-[25px] w-[1100px] rounded-md bg-lightpink p-[15px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]">

@@ -9,6 +9,7 @@ NOTE: The example app in this repository is based on [Brian Holt's React course 
    - [Unidirectional data flow](#react-fundamentals-unidirectional-data-flow-toc)
    - [Custom hook](#react-fundamentals-custom-hook-toc)
    - [TanStack / React Query](#react-fundamentals-tanstack--react-query-toc)
+   - [Context](#react-fundamentals-context-toc)
 
 <details open>
   <summary>
@@ -302,6 +303,36 @@ flowchart LR
   useMutation -->returns--> resultsmutate
   resultsmutate --uses--> Component
   Component --uses--> QueryClient
+```
+
+</details>
+
+<details open>
+
+  <summary>
+  
+  ## React fundamentals: Context [[TOC]](#table-of-contents)
+  
+  </summary>
+
+```mermaid
+flowchart LR
+  subgraph Context
+    direction LR
+    ContextProvider
+    ContextConsumer
+  end
+  subgraph State
+    direction LR
+    contextState-->useState
+  end
+
+  createContext--returns-->Context
+  ContextProvider--holds-->useState
+  ContextProvider--wraps-->Component
+  Component--calls-->useContext
+  contextState--returned-->useContext
+  useContext--returns state-->Component
 ```
 
 </details>

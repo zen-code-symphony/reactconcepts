@@ -1,11 +1,13 @@
-import { useContext, useState } from "react";
+import { lazy, useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import AdoptedPetContext from "./AdoptedPetContext";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
-import Modal from "./Modal";
+import Loader from "./Loader";
 import usePet from "./hooks/usePet";
+
+const Modal = lazy(() => import("./Modal"));
 
 const Details = () => {
   const { id } = useParams();
@@ -20,11 +22,7 @@ const Details = () => {
   }
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center p-[15px]">
-        <h2 className="animate-spin text-[50px]">🌀</h2>
-      </div>
-    );
+    return <Loader />;
   }
 
   return (

@@ -10,6 +10,7 @@ NOTE: The example app in this repository is based on [Brian Holt's React course 
    - [Custom hook](#react-fundamentals-custom-hook-toc)
    - [TanStack / React Query](#react-fundamentals-tanstack--react-query-toc)
    - [Context](#react-fundamentals-context-toc)
+   - [Code splitting](#react-fundamentals-code-splitting-toc)
 
 <details open>
   <summary>
@@ -333,6 +334,25 @@ flowchart LR
   Component--calls-->useContext
   contextState--returned-->useContext
   useContext--returns state-->Component
+```
+
+</details>
+
+<details open>
+
+  <summary>
+  
+  ## React fundamentals: Code splitting [[TOC]](#table-of-contents)
+  
+  </summary>
+
+Vite examines `lazy` imports to split the code into different file chunks. A chunk is loaded automatically at the point of usage. And while the chunk is loading, the `fallback` component (e.g. loading animation, etc.) configured using `Suspense` wrapper component is displayed.
+
+```mermaid
+flowchart LR
+  Component1[Component: lazy]--uses-->lazy--to import-->Component2[Component: actual]
+  AppComponent--uses-->Component1
+  Suspense[Suspense: fallback]--wraps-->AppComponent
 ```
 
 </details>

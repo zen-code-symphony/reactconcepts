@@ -250,7 +250,7 @@ flowchart LR
   
   </summary>
 
-Custom hooks are used to hide all complexity from the user component and provide a clean interface to get access to the required data. This design pattern makes the code simple & easy to follow, improves code maintainability, and enables reusability.
+[Custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks) are used to hide all complexity from the user component and provide a clean interface to get access to the required data. This design pattern makes the code simple & easy to follow, improves code maintainability, and enables reusability.
 
 ```mermaid
 flowchart LR
@@ -281,7 +281,7 @@ flowchart LR
   
   </summary>
 
-TanStack / React Query is a data-fetching library for web applications, but in more technical terms, it makes fetching, caching, synchronizing and updating server state in your web applications a breeze.
+[TanStack / React Query](https://tanstack.com/query/latest/docs/framework/react/overview) is a data-fetching library for web applications, but in more technical terms, it makes fetching, caching, synchronizing and updating server state in your web applications a breeze.
 
 ```mermaid
 flowchart LR
@@ -315,6 +315,8 @@ flowchart LR
   ## React fundamentals: Context [[TOC]](#table-of-contents)
   
   </summary>
+
+React [Context](https://react.dev/learn/passing-data-deeply-with-context) allows you to share data (like global state) across different components in a React application without having to pass props down through each level of the component tree. It simplifies state management by providing a way to access and update shared data directly in any component. It fills the same need as Redux. However, Redux offers advance global state management so choose what works best for your use case.
 
 ```mermaid
 flowchart LR

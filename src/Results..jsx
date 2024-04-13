@@ -2,7 +2,7 @@ import Pet from "./Pet";
 
 const Results = ({ pets }) => {
   return (
-    <div className="float-left mb-[25px] w-[715px] rounded-md bg-lightpink px-4 shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]">
+    <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {!pets.length ? (
         <h1 className="py-4 font-bold">No pets found.</h1>
       ) : (

@@ -6,16 +6,15 @@ const Pet = ({ name, animal, breed, images, location, id }) => {
     hero = images[0];
   }
   return (
-    <Link
-      to={`/details/${id}`}
-      className="flex items-center gap-2 border-b-2 border-solid border-b-[#333] py-4  last:border-b-0"
-    >
-      <img src={hero} alt={name} className="w-[100px] rounded-full" />
-      <div>
-        <h1 className="w-[95%] overflow-hidden text-ellipsis whitespace-nowrap font-[normal] text-3xl text-[#333]">
-          {name}
-        </h1>
-        <h2 className="text-ellipsis whitespace-nowrap font-[normal] text-xl">
+    <Link to={`/details/${id}`} className="relative block">
+      <img
+        src={hero}
+        alt={name}
+        className="w-full object-cover object-center"
+      />
+      <div className="absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2">
+        <h1>{name}</h1>
+        <h2>
           {animal} - {breed} - {location}
         </h2>
       </div>

@@ -6,7 +6,7 @@ const SearchParams = () => {
   const [pets, requestPets] = usePets();
 
   return (
-    <div className="mx-auto my-0 w-[1100px] md:w-[95%]">
+    <div className="mx-auto my-0 w-11/12">
       <SearchForm requestPets={requestPets} />
       <Results pets={pets} />
     </div>

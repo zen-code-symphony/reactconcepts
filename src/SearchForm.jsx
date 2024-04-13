@@ -11,7 +11,7 @@ function SearchForm({ requestPets }) {
   const [adoptedPet] = useContext(AdoptedPetContext);
   return (
     <form
-      className="float-left my-0 ml-0 mr-[25px] w-[360px] rounded-md bg-lightpink px-[15px] pb-[15px] pt-[35px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]"
+      className="mb-10 flex flex-col items-center justify-center rounded-lg bg-gray-200 p-10 shadow-lg"
       onSubmit={(e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -24,54 +24,57 @@ function SearchForm({ requestPets }) {
       }}
     >
       {adoptedPet ? (
-        <img
-          src={adoptedPet.images[0]}
-          alt={adoptedPet.name}
-          className="m-auto h-[100px] rounded-full"
-        />
+        <div>
+          <img
+            src={adoptedPet.images[0]}
+            alt={adoptedPet.name}
+            className="h-[100px] rounded-full"
+          />
+        </div>
       ) : null}
-      <label htmlFor="location" className="block w-[60px]">
+      <label htmlFor="location">
         Location
+        <input
+          type="text"
+          id="location"
+          name="location"
+          placeholder="Location"
+          className="mb-5 block w-60"
+        />
       </label>
-      <input
-        id="location"
-        name="location"
-        placeholder="Location"
-        className="mb-[30px] h-[30px] w-[325px] border border-solid border-border p-2 text-lg"
-      />
 
-      <label htmlFor="animal" className="block w-[60px]">
+      <label htmlFor="animal">
         Animal
+        <select
+          id="animal"
+          name="animal"
+          value={animal}
+          onChange={(e) => setAnimal(e.target.value)}
+          className="search-input"
+        >
+          <option />
+          {ANIMALS.map((animal) => (
+            <option key={animal}>{animal}</option>
+          ))}
+        </select>
       </label>
-      <select
-        id="animal"
-        name="animal"
-        value={animal}
-        onChange={(e) => setAnimal(e.target.value)}
-        className="mb-[30px] h-[30px] w-[325px] border border-solid border-border text-lg"
-      >
-        <option />
-        {ANIMALS.map((animal) => (
-          <option key={animal}>{animal}</option>
-        ))}
-      </select>
 
-      <label htmlFor="breed" className="block w-[60px]">
+      <label htmlFor="breed">
         Breed
+        <select
+          id="breed"
+          name="breed"
+          className="search-input grayed-out-disabled"
+          disabled={breeds.length === 0}
+        >
+          <option />
+          {breeds.map((breed) => (
+            <option key={breed}>{breed}</option>
+          ))}
+        </select>
       </label>
-      <select
-        id="breed"
-        name="breed"
-        disabled={breeds.length === 0}
-        className="mb-[30px] h-[30px] w-[325px] border border-solid border-border text-lg"
-      >
-        <option />
-        {breeds.map((breed) => (
-          <option key={breed}>{breed}</option>
-        ))}
-      </select>
 
-      <button className="focus:border-yellow mx-auto my-0 block cursor-pointer rounded-[5px] border-[solid] border-border bg-primary px-[25px] py-[5px] text-lg text-[white] hover:bg-hoverprimary focus:border focus:border-solid active:bg-active">
+      <button className="rounded border-none bg-orange-500  px-6 py-2 text-white hover:opacity-50">
         Submit
       </button>
     </form>

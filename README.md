@@ -334,6 +334,7 @@ flowchart LR
   Component--calls-->useContext
   contextState--returned-->useContext
   useContext--returns state-->Component
+  useContext--uses-->Context
 ```
 
 </details>

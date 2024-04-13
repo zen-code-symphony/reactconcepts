@@ -128,6 +128,7 @@ Follow the below steps to create the above setup:
 
     - Configure VS Code to format on save using Prettier. Create `.vscode` folder to save workspace
       settings. Create `.vscode/settings.json` file to configure workspace settings. Refer [.vscode/settings.json](./.vscode/settings.json). Following are the relevant lines to configure format on save using prettier:
+
       ```json
       {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -137,7 +138,8 @@ Follow the below steps to create the above setup:
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true
         },
-        "prettier.requireConfig": true
+        "prettier.requireConfig": true,
+        "css.lint.unknownAtRules": "ignore"
       }
       ```
 

@@ -78,6 +78,7 @@ flowchart TB
         vscode-eslint[ext: dbaeumer.vscode-eslint]
         vscode-prettier[ext: esbenp.prettier-vscode]
         vscode-tailwind[ext: bradlc.vscode-tailwindcss]
+        vscode-ts[ext: ms-vscode.vscode-typescript-next]
         vscodesettings[.vscode/settings.json]
     end
     subgraph Node Package Manager

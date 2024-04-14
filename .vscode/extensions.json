@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "humao.rest-client",
-    "ritwickdey.liveserver"
+    "ritwickdey.liveserver",
+    "ms-vscode.vscode-typescript-next"
   ]
 }

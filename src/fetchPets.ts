@@ -1,6 +1,6 @@
 import { QueryFunction } from "@tanstack/react-query";
 
-import { PetApiResponse } from "./APIResponsesTypes";
+import { PetApiResponse } from "./ApiResponsesTypes";
 
 const fetchPets: QueryFunction<
   PetApiResponse,

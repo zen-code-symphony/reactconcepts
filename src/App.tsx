@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Suspense, lazy, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
-import { Pet } from "./APIResponsesTypes";
 import AdoptedPetContext from "./AdoptedPetContext";
+import { Pet } from "./ApiResponsesTypes";
 import Loader from "./Loader";
 
 const Details = lazy(() => import("./Details"));

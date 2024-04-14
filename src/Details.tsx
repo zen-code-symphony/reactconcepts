@@ -33,33 +33,39 @@ const Details = () => {
     return <Loader />;
   }
 
+  if (!isLoading && !errorMsg && !pet) {
+    return null;
+  }
+
+  const petObj = pet!;
+
   return (
     <div className="mx-auto my-0 mb-[25px] w-[1100px] rounded-md bg-lightpink p-[15px] shadow-[0px_0px_12px_#aaa,-0px_-0px_12px_#fff]">
-      <Carousel images={pet.images} />
+      <Carousel images={petObj.images} />
       <div>
         <h1 className="mx-0 my-[5px] text-center text-6xl text-[#333]">
-          {pet.name}
+          {petObj.name}
         </h1>
         <h2 className="mx-0 mb-5 mt-[5px] text-center">
-          {pet.animal} - {pet.breed} - {pet.city}, {pet.state}
+          {petObj.animal} - {petObj.breed} - {petObj.city}, {petObj.state}
           <button
             className="mx-auto my-0 block cursor-pointer rounded-[5px] border-[#333] border-[solid] bg-primary px-[25px] py-[5px] text-lg text-[white]"
             onClick={() => setShowModal(true)}
           >
-            Adopt {pet.name}
+            Adopt {petObj.name}
           </button>
-          <p className="px-[15px] pt-5 leading-normal">{pet.description}</p>
+          <p className="px-[15px] pt-5 leading-normal">{petObj.description}</p>
           {showModal ? (
             <Modal>
               <div className="max-w-[500px] rounded-[30px] bg-lightpink p-[15px] text-center">
                 <h1 className="mx-0 my-[15px] text-center text-3xl font-bold text-[#333]">
-                  Would you like to adopt {pet.name}?
+                  Would you like to adopt {petObj.name}?
                 </h1>
                 <div>
                   <button
                     className="mx-auto my-0 mr-[15px] inline-block cursor-pointer rounded-[5px] border-[#333] border-[solid] bg-[#ad343e] px-[25px] py-[5px] text-lg text-[white]"
                     onClick={() => {
-                      setAdoptedPet(pet);
+                      setAdoptedPet(petObj);
                       navigate("/");
                     }}
                   >

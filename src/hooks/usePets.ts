@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
-import { Pet } from "../APIResponsesTypes";
+import { Pet } from "../ApiResponsesTypes";
 import fetchPets from "../fetchPets";
 
 export interface RequestParams {

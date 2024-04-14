@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-import { Pet } from "./APIResponsesTypes";
+import { Pet } from "./ApiResponsesTypes";
 
 const AdoptedPetContext = createContext<
   [Pet | null, (adoptedPet: Pet) => void]

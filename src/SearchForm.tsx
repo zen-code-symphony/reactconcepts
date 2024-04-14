@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 
-import { Animal } from "./APIResponsesTypes";
 import AdoptedPetContext from "./AdoptedPetContext";
+import { Animal } from "./ApiResponsesTypes";
 import useBreedList from "./hooks/useBreedList";
 import { RequestPetsFunction } from "./hooks/usePets";
 

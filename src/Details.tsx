@@ -11,10 +11,18 @@ const Modal = lazy(() => import("./Modal"));
 
 const Details = () => {
   const { id } = useParams();
+
+  if (!id) {
+    throw new Error("id is missing!");
+  }
+
   const { isLoading, pet, errorMsg } = usePet(id);
+  if (!isLoading && !pet) {
+    throw new Error("Pet is missing!");
+  }
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
   if (errorMsg) {
@@ -73,7 +81,7 @@ const Details = () => {
   );
 };
 
-function DetailsErrorBoundary(props) {
+function DetailsErrorBoundary() {
   return (
     <ErrorBoundary
       errorComponent={
@@ -83,7 +91,7 @@ function DetailsErrorBoundary(props) {
         </h2>
       }
     >
-      <Details {...props} />
+      <Details />
     </ErrorBoundary>
   );
 }

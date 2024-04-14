@@ -1,6 +1,6 @@
 import { useDeferredValue, useMemo } from "react";
 
-import Results from "./Results.";
+import Results from "./Results";
 import SearchForm from "./SearchForm";
 import usePets from "./hooks/usePets";
 

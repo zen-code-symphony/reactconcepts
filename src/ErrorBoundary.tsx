@@ -1,13 +1,18 @@
-import { Component } from "react";
+import { Component, ErrorInfo, ReactElement } from "react";
 
-class ErrorBoundary extends Component {
+interface IProps {
+  children: ReactElement;
+  errorComponent: ReactElement;
+}
+
+class ErrorBoundary extends Component<IProps> {
   state = { hasError: false };
 
   static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error: Error, info: ErrorInfo) {
     console.log("Error caught by ErrorBoundary", error, info);
   }
 

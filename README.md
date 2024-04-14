@@ -27,6 +27,7 @@ We will be creating a basic ReactJS dev setup using:
 - [Tailwind CSS](https://tailwindcss.com/) as CSS framework. It is a utility-first CSS framework that streamlines web development by providing a comprehensive set of pre-designed utility classes for styling HTML elements.
 - [VS Code](https://code.visualstudio.com/) as the code editor. It includes extensions for ESLint, Prettier etc.
 - [npm](https://www.npmjs.com/) as the JavaScript package manager.
+- [TypeScript](https://www.typescriptlang.org/) as a strongly typed programming language that builds on JavaScript. Refer [official doc](https://react.dev/learn/typescript) for more information.
 
 Below is a high-level diagram that depicts how all the above pieces fit together:
 
@@ -36,6 +37,10 @@ title: ReactJS dev setup (uses Node.js v21+, npm v10+)
 ---
 %%{init: {"flowchart": {"htmlLabels": false}} }%%
 flowchart TB
+    subgraph Node
+      direction TB
+      nodeserver[node server.js: port 3100]
+    end
     subgraph Vite
         direction TB
         viteserver[vite: port 5173] --> viteconfig[vite.config.js]
@@ -48,6 +53,8 @@ flowchart TB
         direction TB
         index.html1[index.html, assets/xxxx.js,css,svg]
         indexcss[assets/xxxx.css]
+        clientdist[client: index.html,  assets/xxxx.js,css,svg]
+        serverdist[server: ServerApp.js, assets/xxxx.js]
     end
     subgraph code-repository
         direction TB
@@ -55,6 +62,7 @@ flowchart TB
         packagejson[package.json]
         prettierconfig[.prettierrc.json]
         eslintconfig[.eslintrc.cjs]
+        tsconfigjson[tsconfig.json]
         tailwindconfig[tailwind.config.js]
         postcssconfig[postcss.config.js]
     end
@@ -64,6 +72,7 @@ flowchart TB
     tailwindcss --> indexcss
     prettier --uses--> prettierconfig
     eslint --uses--> eslintconfig
+    eslint --uses--> tsconfigjson
     subgraph VSCode[VS Code]
         direction LR
         vscode-eslint[ext: dbaeumer.vscode-eslint]
@@ -89,6 +98,9 @@ flowchart TB
     viteserver --serves --> index.html2
     Browser --dev mode--> viteserver
     Browser --prod mode--> vitepreview
+    Browser --> nodeserver
+    nodeserver --> clientdist
+    nodeserver --> serverdist
 ```
 
 Follow the below steps to create the above setup:
@@ -210,7 +222,16 @@ Follow the below steps to create the above setup:
     }
     ```
 
-8.  Run Vite dev server and visite [http://localhost:5173](http://localhost:5173) to access the newly configured app.
+8.  Install and configure TypeScript for React and ESLint. Refer [.eslintrc.cjs](./.eslintrc.cjs) for TypeScript settings. Also, refer [package.json](./package.json) file to update TypeScript relates changes in the the `scripts`.
+
+    ```sh
+    npm i -D typescript
+    npx tsc --init
+    npm i -D @types/react @types/react-dom
+    npm install -D eslint-import-resolver-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser
+    ```
+
+9.  Run Vite dev server and visite [http://localhost:5173](http://localhost:5173) to access the newly configured app.
     ```sh
     npm run dev
     ```

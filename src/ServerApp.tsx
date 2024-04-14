@@ -3,7 +3,7 @@ import { StaticRouter } from "react-router-dom/server";
 
 import App from "./App";
 
-export default function render(url, opts) {
+export default function render(url: string, opts: object) {
   const stream = renderToPipeableStream(
     <StaticRouter location={url}>
       <App />

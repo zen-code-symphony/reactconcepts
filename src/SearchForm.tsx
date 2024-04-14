@@ -1,12 +1,18 @@
 import { useContext, useState } from "react";
 
+import { Animal } from "./APIResponsesTypes";
 import AdoptedPetContext from "./AdoptedPetContext";
 import useBreedList from "./hooks/useBreedList";
+import { RequestPetsFunction } from "./hooks/usePets";
 
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
-function SearchForm({ requestPets }) {
-  const [animal, setAnimal] = useState("");
+interface IProps {
+  requestPets: RequestPetsFunction;
+}
+
+function SearchForm({ requestPets }: IProps) {
+  const [animal, setAnimal] = useState("" as Animal);
   const [breeds] = useBreedList(animal);
   const [adoptedPet] = useContext(AdoptedPetContext);
   return (
@@ -14,11 +20,11 @@ function SearchForm({ requestPets }) {
       className="mb-10 flex flex-col items-center justify-center rounded-lg bg-gray-200 p-10 shadow-lg"
       onSubmit={(e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        const formData = new FormData(e.currentTarget);
         const obj = {
-          location: formData.get("location") ?? "",
-          animal: formData.get("animal") ?? "",
-          breed: formData.get("breed") ?? "",
+          location: formData.get("location")?.toString() ?? "",
+          animal: formData.get("animal")?.toString() ?? "",
+          breed: formData.get("breed")?.toString() ?? "",
         };
         requestPets(obj);
       }}
@@ -49,7 +55,7 @@ function SearchForm({ requestPets }) {
           id="animal"
           name="animal"
           value={animal}
-          onChange={(e) => setAnimal(e.target.value)}
+          onChange={(e) => setAnimal(e.target.value as Animal)}
           className="search-input"
         >
           <option />

@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Suspense, lazy, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
+import { Pet } from "./APIResponsesTypes";
 import AdoptedPetContext from "./AdoptedPetContext";
 import Loader from "./Loader";
 
@@ -12,14 +13,12 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: Infinity,
-      cacheTime: Infinity,
-      suspense: true,
     },
   },
 });
 
 const App = () => {
-  const adoptedPet = useState(null);
+  const adoptedPet = useState(null as Pet | null);
   return (
     <div className="m-0 bg-[url(https://pets-images.dev-apis.com/pets/wallpaperA.jpg)] bg-repeat p-0">
       <AdoptedPetContext.Provider value={adoptedPet}>

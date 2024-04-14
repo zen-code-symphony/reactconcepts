@@ -7,12 +7,31 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
-  parserOptions: { ecmaVersion: "latest", sourceType: "module" },
-  settings: { react: { version: "18.2" } },
-  plugins: ["react-refresh", "jsx-a11y"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+    },
+  },
+  plugins: ["react-refresh", "jsx-a11y", "@typescript-eslint"],
   rules: {
     "react/jsx-no-target-blank": "off",
     "react/prop-types": "off",
@@ -20,5 +39,6 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "@typescript-eslint/no-empty-function": 0,
   },
 };

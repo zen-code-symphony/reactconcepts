@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 
-import AdoptedPetContext from "./AdoptedPetContext";
-import { Animal } from "./ApiResponsesTypes";
-import useBreedList from "./hooks/useBreedList";
-import { RequestPetsFunction } from "./hooks/usePets";
+import AdoptedPetContext from "../../AdoptedPetContext";
+import useBreedList from "../../hooks/useBreedList";
+import { RequestPetsFunction } from "../../hooks/usePets";
+import { Animal } from "../../services/ApiResponsesTypes";
 
 const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 

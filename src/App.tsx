@@ -3,11 +3,11 @@ import { Suspense, lazy, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
 import AdoptedPetContext from "./AdoptedPetContext";
-import { Pet } from "./ApiResponsesTypes";
-import Loader from "./Loader";
+import Loader from "./components/Loader";
+import { Pet } from "./services/ApiResponsesTypes";
 
-const Details = lazy(() => import("./Details"));
-const SearchParams = lazy(() => import("./SearchParams"));
+const Details = lazy(() => import("./pages/details/Details"));
+const SearchParams = lazy(() => import("./pages/search/SearchParams"));
 
 const queryClient = new QueryClient({
   defaultOptions: {

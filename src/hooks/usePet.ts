@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import fetchPet from "../fetchPet";
+import fetchPet from "../services/fetchPet";
 
 export default function usePet(id: string) {
   const { isError, error, isLoading, data } = useQuery({

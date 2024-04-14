@@ -1,8 +1,8 @@
 import { useDeferredValue, useMemo } from "react";
 
+import usePets from "../../hooks/usePets";
 import Results from "./Results";
 import SearchForm from "./SearchForm";
-import usePets from "./hooks/usePets";
 
 const SearchParams = () => {
   const [pets, requestPets] = usePets();

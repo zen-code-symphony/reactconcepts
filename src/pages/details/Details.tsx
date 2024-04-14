@@ -1,13 +1,13 @@
 import { lazy, useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import AdoptedPetContext from "./AdoptedPetContext";
-import Carousel from "./Carousel";
-import ErrorBoundary from "./ErrorBoundary";
-import Loader from "./Loader";
-import usePet from "./hooks/usePet";
+import AdoptedPetContext from "../../AdoptedPetContext";
+import Carousel from "../../components/Carousel";
+import ErrorBoundary from "../../components/ErrorBoundary";
+import Loader from "../../components/Loader";
+import usePet from "../../hooks/usePet";
 
-const Modal = lazy(() => import("./Modal"));
+const Modal = lazy(() => import("../../components/Modal"));
 
 const Details = () => {
   const { id } = useParams();

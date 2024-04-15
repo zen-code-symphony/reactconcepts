@@ -32,6 +32,7 @@ class Carousel extends Component<IProps> {
     return (
       <div className="mt-2 flex h-[400px] items-center justify-around">
         <img
+          data-testid="hero"
           src={images[active]}
           alt="animal hero"
           className="max-h-[400px] max-w-[45%]"
@@ -40,6 +41,7 @@ class Carousel extends Component<IProps> {
           {images.map((photo, index) => (
             // eslint-disable-next-line
             <img
+              data-testid={`thumbnail${index}`}
               key={photo}
               src={photo}
               className={`${index === active ? "border-[#333] opacity-60" : ""} m-[15px] inline-block h-[100px] w-[100px] cursor-pointer rounded-[50%] border-2 border-solid border-[#333]`}

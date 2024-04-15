@@ -28,6 +28,7 @@ We will be creating a basic ReactJS dev setup using:
 - [VS Code](https://code.visualstudio.com/) as the code editor. It includes extensions for ESLint, Prettier etc.
 - [npm](https://www.npmjs.com/) as the JavaScript package manager.
 - [TypeScript](https://www.typescriptlang.org/) as a strongly typed programming language that builds on JavaScript. Refer [official doc](https://react.dev/learn/typescript) for more information.
+- [Vitest][http://vitest.dev] as the testing framework.
 
 Below is a high-level diagram that depicts how all the above pieces fit together:
 
@@ -65,7 +66,9 @@ flowchart TB
         tsconfigjson[tsconfig.json]
         tailwindconfig[tailwind.config.js]
         postcssconfig[postcss.config.js]
+        tests[src/__tests__]
     end
+    vitest --runs--> tests
     tailwindconfig --> tailwindcss
     postcssconfig --> tailwindcss
     index.html2 --> tailwindcss
@@ -232,7 +235,38 @@ Follow the below steps to create the above setup:
     npm install -D eslint-import-resolver-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser
     ```
 
-9.  Run Vite dev server and visite [http://localhost:5173](http://localhost:5173) to access the newly configured app.
+9.  Install and configure [Vitest](http://vitest.dev).
+
+    - Install dependencies.
+
+    ```sh
+    npm install -D vitest @testing-library/react happy-dom
+    ```
+
+    - Configure [vite.config.js](./vite.config.js) to include test config:
+
+    ```json
+    {
+      "test": {
+        "environment": "happy-dom"
+      }
+    }
+    ```
+
+    - Add `"test": "vitest"` to `scripts` in [package.json](./package.json).
+
+    - Create `__tests__` folder under [src](./src/) directory. All tests can be added inside this directory.
+
+    - We can run the below commands to run or watch tests.
+
+      ```sh
+      npm t # Runs Vitest in watch mode.
+      npm run test # Runs Vitest in watch mode.
+
+      npm run test -- run # Runs all tests without watch mode.
+      ```
+
+10. Run Vite dev server and visite [http://localhost:5173](http://localhost:5173) to access the newly configured app.
     ```sh
     npm run dev
     ```

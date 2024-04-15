@@ -19,4 +19,5 @@ test("selects the selected image as thumbnail", async () => {
     expect(hero.src).toContain(image);
     expect(Array.from(thumb.classList)).toContain("opacity-60");
   }
+  carousel.unmount();
 });

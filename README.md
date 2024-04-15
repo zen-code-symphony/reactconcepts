@@ -240,7 +240,7 @@ Follow the below steps to create the above setup:
     - Install dependencies.
 
     ```sh
-    npm install -D vitest @testing-library/react happy-dom
+    npm install -D vitest @testing-library/react happy-dom vitest-fetch-mock
     ```
 
     - Configure [vite.config.js](./vite.config.js) to include test config:

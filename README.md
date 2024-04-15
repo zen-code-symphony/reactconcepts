@@ -28,7 +28,7 @@ We will be creating a basic ReactJS dev setup using:
 - [VS Code](https://code.visualstudio.com/) as the code editor. It includes extensions for ESLint, Prettier etc.
 - [npm](https://www.npmjs.com/) as the JavaScript package manager.
 - [TypeScript](https://www.typescriptlang.org/) as a strongly typed programming language that builds on JavaScript. Refer [official doc](https://react.dev/learn/typescript) for more information.
-- [Vitest][http://vitest.dev] as the testing framework.
+- [Vitest](http://vitest.dev) as the testing framework.
 
 Below is a high-level diagram that depicts how all the above pieces fit together:
 

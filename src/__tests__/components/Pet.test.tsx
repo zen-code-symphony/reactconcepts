@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { StaticRouter } from "react-router-dom/server";
 import { expect, test } from "vitest";
 
-import Pet from "../Pet";
+import Pet from "../../components/Pet";
 
 test("displays a default thumbnail", async () => {
   const pet = render(

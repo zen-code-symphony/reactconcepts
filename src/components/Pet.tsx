@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Animal } from "./services/ApiResponsesTypes";
+import { Animal } from "../services/ApiResponsesTypes";
 
 interface IProps {
   name: string;

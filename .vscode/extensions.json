@@ -5,6 +5,7 @@
     "bradlc.vscode-tailwindcss",
     "humao.rest-client",
     "ritwickdey.liveserver",
-    "ms-vscode.vscode-typescript-next"
+    "ms-vscode.vscode-typescript-next",
+    "vitest.explorer"
   ]
 }

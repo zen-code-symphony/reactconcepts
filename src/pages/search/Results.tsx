@@ -5,7 +5,7 @@ const Results = ({ pets }: { pets: PetType[] }) => {
   return (
     <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {!pets.length ? (
-        <h1 className="py-4 font-bold">No pets found.</h1>
+        <h1 className="py-4 font-bold">No pets found</h1>
       ) : (
         pets.map((pet) => {
           return (
